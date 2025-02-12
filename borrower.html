@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Borrower Registration</title>
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/styles.css" /> <!-- Main CSS file -->
+  <link rel="shortcut icon" href="images/logo.png" />
+  <style>
+    /* Basic styling for demonstration */
+    .container { height: 85%; }
+  
+    .sidebar {
+      overflow-y: auto;
+      max-height: 100vh;
+    }
+    .step-item { margin-bottom: 10px; }
+    .step-item.active { font-weight: bold; }
+    .forrm-container { width: 75%; padding: 10px; }
+    .form-steps { display: flex; flex-direction: column; }
+    .step { display: none; }
+    .step.active { display: block; }
+    .form-input, .form-select, textarea, input[type="date"], input[type="file"] {
+      width: 100%; padding: 8px; margin: 5px 0 10px 0; box-sizing: border-box;
+    }
+  </style>
+</head>
+<body id="borrower">
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+      </div>
+      <div class="navigation-bar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="funders.html">Funders</a></li>
+          <li><a href="borrower.html">Borrower</a></li>
+          <li><a href="mentors.html">Mentor</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+      <div class="toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <!-- Sidebar with step indicators -->
+    <div class="sidebar">
+      <h3>Create Account</h3>
+      <div class="step-item active"><span>1</span> Personal (1/2)</div>
+      <div class="step-item"><span>2</span> Personal (2/2)</div>
+      <div class="step-item"><span>3</span> Account</div>
+      <div class="step-item"><span>4</span> Business Idea</div>
+      <div class="step-item"><span>5</span> Business Concept</div>
+      <div class="step-item"><span>6</span> Financial (1/2)</div>
+      <div class="step-item"><span>7</span> Financial (2/2)</div>
+      <div class="step-item"><span>8</span> Guarantor Details (1/2)</div>
+      <div class="step-item"><span>9</span> Guarantor Details (2/2)</div>
+      <div class="step-item"><span>10</span> Supporting Docs</div>
+      <div class="step-item"><span>11</span> Terms & Review</div>
+    </div>
+    <!-- Form container -->
+    <div class="forrm-container">
+      <div class="form-steps">
+        <!-- Step 0: Personal Details (Part 1) -->
+        <div class="step active">
+          <h2>Personal Details (Part 1)</h2>
+          <label for="nationalID">National ID (13 digits)</label>
+          <input type="text" id="nationalID" class="form-input" placeholder="Enter your 13-digit ID">
+          <span class="error-message" id="error-nationalID"></span>
+          
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" class="form-input" placeholder="Enter your first name">
+          <span class="error-message" id="error-firstName"></span>
+          
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" class="form-input" placeholder="Enter your last name">
+          <span class="error-message" id="error-lastName"></span>
+          
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" class="form-input">
+          <span class="error-message" id="error-dob"></span>
+          
+          <button class="next-btn">Next</button>
+        </div>
+        <!-- Step 1: Personal Details (Part 2) -->
+        <div class="step">
+          <h2>Personal Details (Part 2)</h2>
+          <label for="address">Residential Address</label>
+          <input type="text" id="address" class="form-input" placeholder="Enter your full address">
+          <span class="error-message" id="error-address"></span>
+          
+          <label for="phonePersonal">Phone Number (11 digits)</label>
+          <input type="text" id="phonePersonal" class="form-input" placeholder="Enter your phone number">
+          <span class="error-message" id="error-phonePersonal"></span>
+          
+          <label for="maritalStatus">Marital Status</label>
+          <select id="maritalStatus" class="form-select" required>
+            <option value="">--Select Status--</option>
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+            <option value="widowed">Widowed</option>
+          </select>
+          <span class="error-message" id="error-maritalStatus"></span>
+          
+          <label for="numberDependents">Number of Dependents</label>
+          <input type="number" id="numberDependents" class="form-input" placeholder="Enter number of dependents">
+          <span class="error-message" id="error-numberDependents"></span>
+          
+          <button class="prev-btn">Previous</button>
+          <button class="next-btn">Next</button>
+        </div>
+        <!-- Step 2: Account Details -->
+        <div class="step">
+          <h2>Account Details</h2>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-input" placeholder="Enter your email">
+          <span class="error-message" id="error-email"></span>
+          
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-input" placeholder="Enter your password">
+          <span class="error-message" id="error-password"></span>
+          
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm your password">
+          <span class="error-message" id="error-confirmPassword"></span>
+          
+          <button class="prev-btn">Previous</button>
+          <button class="next-btn">Next</button>
+        </div>
+        <!-- Step 3: Business Idea -->
+        <div class="step">
+          <h2>Business Idea</h2>
+          <label for="businessIdea">Describe Your Business Idea/Concept</label>
+          <textarea id="businessIdea" class="form-input" placeholder="Describe your business idea"></textarea>
+          <span class="error-message" id="error-businessIdea"></span>
+          
+          <h2>Business Concept</h2>
+          <label for="businessType">Business Type/Industry</label>
+          <select id="businessType" name="businessType" class="form-select" required>
+            <option value="">--Select Industry--</option>
+            <option value="retail">Retail</option>
+            <option value="services">Services</option>
+            <option value="manufacturing">Manufacturing</option>
+            <option value="technology">Technology</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="error-message" id="error-businessType"></span>
+          <div id="otherBusinessTypeField" style="display: none;">
+            <label for="otherBusinessType">Please specify:</label>
+            <input type="text" id="otherBusinessType" class="form-input" placeholder="Specify your industry">
+            <span class="error-message" id="error-otherBusinessType"></span>
+          </div>
+
+          <label for="businessLocation">Business Location</label>
+          <input type="text" id="businessLocation" class="form-input" placeholder="Enter business location (must be within [City])">
+          <span class="error-message" id="error-businessLocation"></span>
+          
+          <button class="prev-btn">Previous</button>
+          <button class="next-btn">Next</button>
+        </div>
+        <!-- Step 4: Business Concept (Part 2) -->
+        <div class="step">
+          <h2>Business Concept (Part 2)</h2>
+          <label for="startDate">Expected Start Date</label>
+          <input type="date" id="startDate" class="form-input">
+          <span class="error-message" id="error-startDate"></span>
+          
+          <label for="loanAmount">Loan Amount Requested</label>
+          <input type="number" id="loanAmount" class="form-input" placeholder="Enter desired loan amount">
+          <span class="error-message" id="error-loanAmount"></span>
+          
+          <label for="fundsUse">Intended Use of Funds</label>
+          <textarea id="fundsUse" class="form-input" placeholder="Explain how you will use the funds"></textarea>
+          <span class="error-message" id="error-fundsUse"></span>
+          
+          <button class="prev-btn">Previous</button>
+          <button class="next-btn">Next</button>
+        </div>
+        <!-- Step 5: Financial Information (Part 1) -->
+        <div class="step">
+          <h2>Financial Information (Part 1)</h2>
+          <label for="monthlyIncome">Monthly Income</label>
+          <input type="number" id="monthlyIncome" class="form-input" placeholder="Enter your current monthly income">
+          <span class="error-message" id="error-monthlyIncome"></span>
+          
+          <label for="householdIncome">Household Income</label>
+          <input type="number" id="householdIncome" class="form-input" placeholder="Enter your household income">
+          <span class="error-message" id="error-householdIncome"></span>
+          
+          <label for="savingsAssets">Savings/Assets</label>
+          <textarea id="savingsAssets" class="form-input" placeholder="Describe any savings or assets you own"></textarea>
+          <span class="error-message" id="error-savingsAssets"></span>
+          
+          <button class="prev-btn">Previous</button>
+          <button class="next-btn">Next</button>
+        </div>
+        <!-- Step 6: Financial Information (Part 2) -->
+        <div class="step">
+          <h2>Financial Information (Part 2)</h2>
+          <label for="liabilities">Liabilities/Debts</label>
+          <textarea id="liabilities" class="form-input" placeholder="List any existing loans or financial obligations"></textarea>
+          <span class="error-message" id="error-liabilities"></span>
+          
+          <label for="businessExperience">Business Experience</label>
+          <textarea id="businessExperience" class="form-input" placeholder="Describe any prior business experience"></textarea>
+          <span class="error-message" id="error-businessExperience"></span>
+          
+          <label for="repaymentSchedule">Proposed Repayment Schedule</label>
+          <input type="text" id="repaymentSchedule" class="form-input" placeholder="E.g., Monthly or Quarterly installments">
+          <span class="error-message" id="error-repaymentSchedule"></span>
+          
+          <button class="prev-btn">Previous</button>
+          <button class="next-btn">Next</button>
+        </div>
+        <!-- Step 7: Guarantor Details (Part 1) -->
+        <div class="step">
+          <h2>Guarantor Details (1/2)</h2>
+          <label for="guarantor1Name">Guarantor 1 Name</label>
+          <input type="text" id="guarantor1Name" class="form-input" placeholder="Enter guarantor 1 name">
+          <span class="error-message" id="error-guarantor1Name"></span>
+          
+          <label for="guarantor1Location">Guarantor 1 Location</label>
+          <input type="text" id="guarantor1Location" class="form-input" placeholder="Enter guarantor 1 location">
+          <span class="error-message" id="error-guarantor1Location"></span>
+          
+          <label for="guarantor1CNIC">Guarantor 1 CNIC Picture</label>
+          <input type="file" id="guarantor1CNIC" name="guarantor1CNIC" class="form-select">
+          <span class="error-message" id="error-guarantor1CNIC"></span>
+          
+          <button class="prev-btn">Previous</button>
+          <button class="next-btn">Next</button>
+        </div>
+        <!-- Step 8: Guarantor Details (Part 2) -->
+        <div class="step">
+          <h2>Guarantor Details (2/2)</h2>
+          <label for="guarantor2Name">Guarantor 2 Name</label>
+          <input type="text" id="guarantor2Name" class="form-input" placeholder="Enter guarantor 2 name">
+          <span class="error-message" id="error-guarantor2Name"></span>
+          
+          <label for="guarantor2Location">Guarantor 2 Location</label>
+          <input type="text" id="guarantor2Location" class="form-input" placeholder="Enter guarantor 2 location">
+          <span class="error-message" id="error-guarantor2Location"></span>
+          
+          <label for="guarantor2CNIC">Guarantor 2 CNIC Picture</label>
+          <input type="file" id="guarantor2CNIC" name="guarantor2CNIC" class="form-select">
+          <span class="error-message" id="error-guarantor2CNIC"></span>
+          
+          <button class="prev-btn">Previous</button>
+          <button class="next-btn">Next</button>
+        </div>
+        <!-- Step 9: Supporting Documents -->
+        <div class="step">
+          <h2>Supporting Documents</h2>
+          <label for="nationalIDUpload">Upload National ID Copy</label>
+          <input type="file" id="nationalIDUpload" name="nationalIDUpload" class="form-select">
+          <span class="error-message" id="error-nationalIDUpload"></span>
+          
+          <label for="residenceProof">Upload Proof of Residence</label>
+          <input type="file" id="residenceProof" name="residenceProof" class="form-select">
+          <span class="error-message" id="error-residenceProof"></span>
+          
+          <label for="financialDocs">Upload Financial Documents</label>
+          <input type="file" id="financialDocs" name="financialDocs" class="form-select">
+          <span class="error-message" id="error-financialDocs"></span>
+          
+          <button class="prev-btn">Previous</button>
+          <button class="next-btn">Next</button>
+        </div>
+        <!-- Step 10: Terms & Review -->
+        <div class="step">
+          <h2>Review & Terms and Conditions</h2>
+          <p>Please review your details before submitting your application.</p>
+          <div class="terms-container">
+            <p>By registering as a borrower on our platform, you ("Borrower") agree to be bound by these Terms and Conditions ("Terms"). If you do not agree to these Terms, please do not register or use our services.</p>
+            <p>You confirm that you are at least 18 years old and that all information provided during registration is true, accurate, and complete. You agree to update your information as necessary.</p>
+            <p>You are responsible for maintaining the confidentiality of your account credentials, including your password. Please notify us immediately of any unauthorized use of your account. We are not liable for any loss or damage arising from your failure to maintain account security.</p>
+            <p>You acknowledge that the loan funds are provided solely to support your business startup in [City] and that your eligibility is subject to strict verification of your business plan and financial capacity.</p>
+            <p>Your personal and financial information will be handled in accordance with our Privacy Policy. By registering, you consent to the collection, use, and sharing of your information as described therein.</p>
+            <p>We reserve the right to modify or update these Terms at any time, with changes effective immediately upon posting. Your continued use of the platform after such changes constitutes acceptance of the new Terms.</p>
+            <p>We may suspend or terminate your account at our sole discretion, without prior notice, for any breach of these Terms.</p>
+            <p>In no event shall our platform or its affiliates be liable for any indirect, incidental, or consequential damages arising from your use of the platform or the loan services.</p>
+            <p>These Terms shall be governed by the laws of [Insert Jurisdiction]. Any disputes will be resolved through negotiation, and if necessary, through arbitration or in the appropriate courts within [Insert Jurisdiction].</p>
+            <p>If you have any questions, please contact us at [Insert Contact Email].</p>
+            <p>By clicking "Submit" or completing your registration, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.</p>
+          </div>
+          <div class="agree-checkbox">
+            <label>
+              <input type="checkbox" id="agreeTerms" name="agreeToTerms" required>
+              I agree to the <a href="terms-and-conditions.html" target="_blank">Terms and Conditions</a>.
+            </label>
+          </div>
+          <button class="prev-btn">Previous</button>
+          <button class="submit-btn" id="submitBtn" disabled>Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Loader (Optional) -->
+  <div class="loader-wrap">
+    <div class="loader">
+      <span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span>
+      <span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span>
+      <span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span>
+      <span class="loader-item"></span>
+    </div>
+  </div>
+  <script src="JS/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SupportFunds</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Main CSS file -->
+    <link rel="shortcut icon" href="images/logo.png"> <!-- Favicon -->
+    <link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+            </div>
+            <div class="navigation-bar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="funders.html">Funders</a></li>
+                    <li><a href="borrower.html">Borrower</a></li>
+                    <li><a href="mentors.html">Mentor</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <div class="login-form">
+            <h1 id="login-title">Login</h1>  <!-- Added ID -->
+            <p id="role-text">Select your role to continue:</p> <!-- Added ID -->
+    
+            <div class="role-selection">
+                <button class="role-btn" onclick="updateRole('Borrower')">Borrower</button>
+                <button class="role-btn" onclick="updateRole('Funder')">Funder</button>
+                <button class="role-btn" onclick="updateRole('Mentor')">Mentor</button>
+            </div>
+    
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="extra-options">
+                    <label><input type="checkbox"> Remember Me</label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!--Start loader-->
+    <div class="loader-wrap">
+        <div class="loader">
+            <span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span>
+        </div>
+    </div>
+    <!--End loader-->
+    
+    <script>
+        function fadeOutEffect() {
+            const loader = document.querySelector(".loader-wrap");
+            const body = document.body;
+            let opacity = 1;
+            const fadeEffect = setInterval(function() {
+                if (opacity > 0) {
+                    opacity -= 0.1;
+                    loader.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeEffect);
+                    loader.style.display = 'none';
+                    body.classList.remove('stop-scroll');
+                }
+            }, 50);
+        }
+
+        function toggleMenu() {
+            const nav = document.querySelector("nav");
+            const toggle = document.querySelector(".toggle");
+            nav.classList.toggle("active");
+            toggle.classList.toggle("active");
+        }
+
+        function updateRole(role) {
+            document.getElementById("login-title").innerText = `Login as ${role}`;
+        }
+
+        // Add active class to the clicked link's parent <li>
+        const navLinks = document.querySelectorAll('.navigation-bar a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Remove active class from all links
+                navLinks.forEach(link => link.parentElement.classList.remove('active'));
+                // Add active class to the clicked link's parent <li>
+                this.parentElement.classList.add('active');
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll(".navigation-bar a");
+
+            // Get the current page URL
+            const currentPageUrl = window.location.href;
+
+            // Loop through all navigation links
+            navLinks.forEach(link => {
+                // Check if the link's href matches the current page URL
+                if (link.href === currentPageUrl) {
+                    // Add the active class to the parent <li> of the matching link
+                    link.parentElement.classList.add("active");
+                }
+
+                // Optional: Add click event to highlight the clicked link
+                link.addEventListener("click", function () {
+                    navLinks.forEach(nav => nav.parentElement.classList.remove("active"));
+                    this.parentElement.classList.add("active");
+                });
+            });
+        });
+
+        // Hide the loader when the page has fully loaded
+        window.onload = function() {
+            fadeOutEffect();
+        };
+    </script>
+</body>
+</html>

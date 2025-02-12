@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Borrowers</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="borrowers-container">
+    <header class="page-header">
+      <h1>Available Borrowers</h1>
+      <p>Explore borrowers' profiles and support their businesses.</p>
+    </header>
+
+    <!-- Borrowers List -->
+    <section class="borrowers-list">
+      <!-- Borrower Card 1 -->
+      <div class="borrower-card">
+        <h2>Ali Khan</h2>
+        <p><strong>Requested Amount:</strong> $500</p>
+        <p><strong>Business Type:</strong> Fruit Stall</p>
+        <button class="view-profile-btn" onclick="viewProfile('Ali Khan')">View Profile</button>
+      </div>
+
+      <!-- Borrower Card 2 -->
+      <div class="borrower-card">
+        <h2>Sara Ahmed</h2>
+        <p><strong>Requested Amount:</strong> $800</p>
+        <p><strong>Business Type:</strong> Clothing Store</p>
+        <button class="view-profile-btn" onclick="viewProfile('Sara Ahmed')">View Profile</button>
+      </div>
+
+      <!-- Borrower Card 3 -->
+      <div class="borrower-card">
+        <h2>Usman Qureshi</h2>
+        <p><strong>Requested Amount:</strong> $1000</p>
+        <p><strong>Business Type:</strong> Restaurant</p>
+        <button class="view-profile-btn" onclick="viewProfile('Usman Qureshi')">View Profile</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal for Borrower Details -->
+  <div class="modal" id="borrowerModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="borrowerName">Borrower Name</h2>
+      <p><strong>Requested Amount:</strong> <span id="requestedAmount">$0</span></p>
+      <p><strong>Business Type:</strong> <span id="businessType">N/A</span></p>
+      <p><strong>Business Plan:</strong> <span id="businessPlan">N/A</span></p>
+      <p><strong>Repayment Schedule:</strong> <span id="repaymentSchedule">N/A</span></p>
+    </div>
+  </div>
+
+  <script src="JS/scripts.js"></script>
+</body>
+</html>
