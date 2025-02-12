@@ -1,0 +1,354 @@
+/* Reset and Body Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #fbc2eb, #a18cd1);
+  display: flex;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  padding-top: 10px;
+  background-image: url("../images/black.jpg");
+}
+
+/* Form Container */
+.form-container {
+  background-color: #ffffffc9;
+  padding: 1.5rem;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  position: relative; /* Ensures it moves from its current position */
+  left: -30px; /* Move slightly left (adjust value as needed) */
+}
+
+/* Textarea Styling */
+.input-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  resize: vertical; /* Allows vertical resizing */
+}
+
+/* Checkbox Styling */
+.extra-options label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.extra-options a {
+  color: #9D5164;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.extra-options a:hover {
+  color: #9D5164;
+}
+
+/* Title and Description */
+.login-form h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: #9B405D;
+}
+.login-form p {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* Role Selection Buttons */
+.role-selection {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.role-btn {
+  background-color: #9D5164;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 0.3rem;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.role-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px #D29Da0;
+}
+
+/* Input Groups */
+.input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.input-group label {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+/* Extra Options */
+.extra-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.extra-options a {
+  color: #9D5164;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.extra-options a:hover {
+  color: #9D5164;
+}
+
+/* Submit Button */
+.login-btn {
+  background-color: #9D5164;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px #D29Da0 ;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .form-container {
+      padding: 2rem;
+  }
+  .role-btn {
+      font-size: 0.8rem;
+      padding: 0.6rem 0.8rem;
+  }
+}
+
+/* Borrower */
+
+.container {
+  display: flex;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  width: 700px;
+  max-width: 90%;
+  height: 450px;
+}
+
+.sidebar {
+  width: 35%;
+  background-color: #9D5164;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+
+.sidebar h3 {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+}
+
+.sidebar .step-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar .step-item.active {
+  font-weight: bold;
+  color: white;
+}
+
+.sidebar .step-item span {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  text-align: center;
+  line-height: 22px;
+  margin-right: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.sidebar .step-item.active span {
+  background-color: white;
+  color: #D29Da0;
+  border-color: white;
+}
+
+.forrm-container {
+  width: 65%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.form-steps {
+  position: relative;
+}
+
+.step {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.step.active {
+  display: block;
+}
+
+
+label {
+  font-weight: bold;
+  color: #444;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+
+
+button {
+  padding: 10px 20px;
+  margin: 10px 5px 0 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #D29Da0;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+}
+#otherField {
+  margin-top: 10px;
+}
+#otherField .form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+}
+.next-btn, .prev-btn, .submit-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #D29Da0; /* Default color for Next button */
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+}
+.next-btn:hover, .prev-btn:hover, .submit-btn:hover {
+  background-color: #9B405D /* Hover color for Next button */
+}
+.prev-btn {
+  background-color: #D29Da0; /* Color for Previous button */
+  margin-right: 10px;
+}
+.prev-btn:hover {
+  background-color: #9B405D; /* Hover color for Previous button */
+}
+.terms-container {
+  background: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.terms-container p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.agree-checkbox {
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+.agree-checkbox input {
+  margin-right: 10px;
+}
+
+   /* Styling for error messages */
+   .error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* Styling for the Terms and Conditions container */
+  .terms-container {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+  }
